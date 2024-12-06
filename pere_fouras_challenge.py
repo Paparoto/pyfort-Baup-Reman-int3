@@ -2,7 +2,7 @@ import json
 import random
 
 def load_riddles(file):
-    open(file, 'r') as f:
+    with open(file, 'r') as f:
         riddles = json.load(f)
     return riddles
 
@@ -15,3 +15,4 @@ def pere_fouras_riddles():
     print("Welcome to the Father Fouras puzzle challenge!")
     print("You have 3 attempts to solve this puzzle:")
     print(f"Enigma : {question}")
+
