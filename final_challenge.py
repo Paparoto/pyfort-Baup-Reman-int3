@@ -10,6 +10,7 @@ def treasure_room():
     while i<3:
         time.sleep(1)
         print(clues[i])
+        i+=1
     attempts=3
     answer_correct = False
     while attempts > 0 and not answer_correct:

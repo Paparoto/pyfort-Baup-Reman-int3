@@ -1,4 +1,7 @@
 import random
+import time
+
+
 def factorial(n):
     if n == 0:
         return 1
@@ -10,8 +13,11 @@ def math_challenge_factorial():
     answer=int(input("Math Challenge: Calculate the factorial of " + str(n) + ".\nYour answer: "))
     if answer==factorial(n):
         print("Correct! You win a key.")
+        time.sleep(0.5)
         return True
     else:
+        print("Wrong")
+        time.sleep(0.5)
         return False
 
 
@@ -28,8 +34,11 @@ def math_challenge_equation():
     answer = int(input(("Math Challenge: Solve the equation " + str(sol["a"]) +"x + " + str(sol["b"]) + " = 0.\nWhat is the value of x: ")))
     if answer == sol["x"]:
         print("Correct! You win a key.")
+        time.sleep(0.5)
         return True
     else:
+        print("Wrong")
+        time.sleep(0.5)
         return False
 
 
@@ -48,11 +57,15 @@ def nearest_prime(n):
 
 def math_challenge_prime():
     n= random.randint(10,20)
-    answer = int(input("Math Challenge: Find the nearest prime to "+ str(n) + ".\nYour answer: "))
+    answer = int(input("Math Challenge: Find the nearest greatest prime (including this exact number) to "+ str(n) + ".\nYour answer: "))
+    time.sleep(1)
     if answer==nearest_prime(n):
         print("Correct! You win a key.")
+        time.sleep(0.5)
         return True
     else:
+        print("Wrong")
+        time.sleep(0.5)
         return False
 
 
@@ -78,26 +91,33 @@ def math_roulette_challenge():
             x = 'subtraction'
    print("Numbers on the roulette:",roul)
    print("Calculate the result by combining these numbers with",x)
-   answer = int(input("Your answer: "))
+   answer=0
+   try :
+       answer = int(input("Your answer: "))
+   except:
+       print("We interpretated your answer as 0")
+   time.sleep(1.5)
    if answer == sol:
-       print("Correct answer! You've won a key.")
+       print("Correct! You win a key.")
+       time.sleep(0.5)
        return True
-
    else:
+       print("Wrong")
+       time.sleep(0.5)
        return False
 
 def math_challenge():
-    keys=0
     challenge=random.randint(1,4)
     if challenge==1:
         if math_challenge_factorial():
-            keys +=1
+            return True
     elif challenge==2:
         if math_challenge_equation():
-            keys += 1
+            return True
     elif challenge==3:
         if math_challenge_prime():
-            keys += 1
+            return True
     elif challenge==4:
         if math_roulette_challenge():
-            keys += 1
+            return True
+    return False

@@ -98,9 +98,11 @@ def battleship_game():
             turn(player, game_master_shooting_grid, player_grid)
         if has_won(player_shooting_grid):
             print("The player won!")
+            time.sleep(1)
             return True
         elif has_won(game_master_shooting_grid):
             print("The player loose!")
+            time.sleep(1)
             return False
         else:
             player = next_player(player)

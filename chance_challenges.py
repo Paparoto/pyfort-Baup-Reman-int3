@@ -21,8 +21,14 @@ def shell_game():
                 print("Too bad ! The key is not under the shell", player_choice)
         else:
             print("Invalid choice. Please choose from A, B or C.")
+        time.sleep(1)
+        print(f"The key was under the shell {key_shell}.")
+        time.sleep(1)
+        print("Remixing the shells...")
+        time.sleep(1)
+    time.sleep(1)
     print("You have used both of your attempts. You lost!")
-    print(f"The key was under the shell {key_shell}.")
+    time.sleep(1)
     return False
 
 
@@ -47,6 +53,7 @@ def rolling_dice_game():
         if 6 in rolls:
             time.sleep(1)
             print("Oh No ! The game master won the game, you loose.")
+            time.sleep(1)
             return False
         time.sleep(2)
         attempts+=1
@@ -57,18 +64,19 @@ def rolling_dice_game():
             time.sleep(2)
         else:
             print("No 6 were rolled for the third time now, no one won the game, it's a draw.")
+            time.sleep(1)
             return False
 
 
 def chance_challenge():
-    keys=0
     challenge = random.randint(1, 2)
     if challenge == 1:
         if shell_game():
-            keys += 1
+            return True
     elif challenge == 2:
         if rolling_dice_game():
-            keys += 1
+            return True
+    return False
 
 
 
